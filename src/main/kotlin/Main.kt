@@ -1,7 +1,9 @@
 package org.example
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-
+    var name: String? = "금민섭"
+    name = null
+    println(name)
 }
+
+fun Int?.isEven(): Boolean = this?.let { it % 2 == 0 } ?: false
