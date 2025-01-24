@@ -1,8 +1,9 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.9.23'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    id 'application'
 }
 
-group = 'org.example'
+group = 'com.example'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -10,12 +11,21 @@ repositories {
 }
 
 dependencies {
+    implementation platform('org.jetbrains.kotlin:kotlin-bom')
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
 }
 
-test {
-    useJUnitPlatform()
+application {
+    mainClass = 'com.example.MainKt'
 }
+
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
